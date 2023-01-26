@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class SignUpActivity extends AppCompatActivity {
-    // hello
+    // 이 부분 바꿔서 올린다아아아
     ActionBar actionBar;
     Button signup_btn;
 
