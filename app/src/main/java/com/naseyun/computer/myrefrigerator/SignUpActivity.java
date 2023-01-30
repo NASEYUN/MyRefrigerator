@@ -15,6 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class SignUpActivity extends AppCompatActivity {
+    // 올려보자아아아
+    // 다시 한번더
+    // test
+    // test2
+
     ActionBar actionBar;
     Button signup_btn;
 
