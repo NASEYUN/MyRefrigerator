@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class SignUpActivity extends AppCompatActivity {
-    // 2시 1분 수정
+    // 3시 5분 수정
 
     ActionBar actionBar;
     Button signup_btn;
