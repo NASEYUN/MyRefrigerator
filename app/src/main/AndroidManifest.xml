@@ -29,6 +29,10 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".RecipeActivity"></activity>
         <activity android:name=".BookmarkActivity"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API Key"
+            android:value="AIzaSyAuDsy4VBw2wV2waycQ0Ek-GTeOoJg2wSQ"
+            />
     </application>
 
 </manifest>
