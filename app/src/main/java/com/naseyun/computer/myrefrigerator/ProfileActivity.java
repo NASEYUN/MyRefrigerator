@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,10 +27,13 @@ import org.w3c.dom.Text;
 public class ProfileActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private BottomNavigationView bot_navi_menu;
-    private EditText username, id, pw, gender;
+    private EditText username, id, pw, pw_check, address1, address2, address3;
     private String edit_username, edit_id, edit_pw, edit_gender;
     private Button edit_profile;
+    private RadioButton gender;
     private Intent profile_intent;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,14 +44,23 @@ public class ProfileActivity extends AppCompatActivity {
 
         username = findViewById(R.id.username_textview);
         id = findViewById(R.id.id_textview);
-        gender = findViewById(R.id.gender_textview);
+        gender = findViewById(R.id.genderMan);
+        gender = findViewById(R.id.genderWoman);
         pw = findViewById(R.id.pw_textview);
+        pw_check = findViewById(R.id.pwcheck_textview);
+        address1 = findViewById(R.id.address1_textview);
+        address2 = findViewById(R.id.address2_textview);
+        address3 = findViewById(R.id.address3_textview);
         edit_profile = findViewById(R.id.edit_profile);
 
         username.setEnabled(false);
         id.setEnabled(false);
         pw.setEnabled(false);
+        pw_check.setEnabled(false);
         gender.setEnabled(false);
+        address1.setEnabled(false);
+        address2.setEnabled(false);
+        address3.setEnabled(false);
 
         Toolbar tool_bar = findViewById(R.id.profile_toolbar);
 
@@ -57,11 +71,11 @@ public class ProfileActivity extends AppCompatActivity {
         // ↓툴바에 홈버튼을 활성화
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        username.setText("seyuun");
-        id.setText("nsy");
-        gender.setText("여자");
-        pw.setText("1234");
-        //pw.setPaintFlags(pw.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+//        username.setText("seyuun");
+//        id.setText("nsy");
+//        gender.setText("여자");
+//        pw.setText("1234");
+//        pw.setPaintFlags(pw.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         edit_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +84,11 @@ public class ProfileActivity extends AppCompatActivity {
                 username.setEnabled(true);
                 id.setEnabled(true);
                 pw.setEnabled(true);
+                pw_check.setEnabled(true);
                 gender.setEnabled(true);
+                address1.setEnabled(true);
+                address2.setEnabled(true);
+                address3.setEnabled(true);
 
                 edit_profile.setText("수정 완료");
 
@@ -78,12 +96,12 @@ public class ProfileActivity extends AppCompatActivity {
                 edit_username = username.getText().toString();
                 edit_id = id.getText().toString();
                 edit_pw = pw.getText().toString();
-                edit_gender = gender.getText().toString();
+//                edit_gender = gender.getText().toString();
 
                 username.setText(edit_username);
                 id.setText(edit_id);
                 pw.setText(edit_pw);
-                gender.setText(edit_gender);
+//                gender.setText(edit_gender);
             }
         });
 
@@ -138,9 +156,12 @@ public class ProfileActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
             }
-            case R.id.menu_basket: {
-                Intent intent = new Intent(getApplicationContext(), MybasketActivity.class);
-                intent.putExtra("message", "장바구니 액티비티로 이동!");
+
+            // 여기가 내가 잘 이해를 못한거 같아서 좀 변경이 되긴했는데 문제는 없으니까
+            // 내가 월요일에 다시 물어볼게!!
+            case R.id.menu_edit: {
+                Intent intent = new Intent(getApplicationContext(), Edit_Profile_Activity.class);
+                intent.putExtra("message", "편집 액티비티로 이동!");
                 startActivity(intent);
                 return true;
             }
