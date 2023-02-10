@@ -26,23 +26,14 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="9dp"
-            android:src="@drawable/basket" />
     </androidx.appcompat.widget.Toolbar>
 
     <HorizontalScrollView
-        android:id="@+id/recyclerview_recipe"
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_above="@id/recipe_bottom_navi_menu"
-        android:layout_below="@id/recipe_toolbar"
+        android:layout_height="50dp"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="565dp"
-        android:layout_weight="1">
+        android:layout_below="@id/recipe_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,547 +43,103 @@
             <Button
                 android:id="@+id/entire_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/edit_profile_rounded"
                 android:text="전체"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/kimchi_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/edit_profile_rounded"
                 android:text="김치"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/egg_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/edit_profile_rounded"
                 android:text="계란"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
 
             <Button
-                android:id="@+id/meat_button"
+                android:id="@+id/pork_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="7dp"
                 android:background="@drawable/edit_profile_rounded"
                 android:text="돼지고기"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
 
             <Button
-                android:id="@+id/meat_button"
+                android:id="@+id/cow_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginRight="9dp"
                 android:background="@drawable/edit_profile_rounded"
-                android:text="돼지고기"
+                android:text="돼지고기이"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
 
             <Button
-                android:id="@+id/meat_button"
+                android:id="@+id/dog_button"
                 android:layout_width="70dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="9dp"
                 android:background="@drawable/edit_profile_rounded"
-                android:text="돼지고기"
+                android:text="돼지고이이"
                 android:textColor="#00BCD4"
-                android:textSize="12dp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </HorizontalScrollView>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="562dp"
-        android:layout_marginTop="97dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_above="@id/recipe_bottom_navi_menu"
+        android:layout_below="@id/scroll">
         <!--        app:layout_constraintTop_toBottomOf="@+id/button">-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/profile_bottom_navi_menu"
-            android:layout_below="@id/profile_toolbar"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="9dp"
+                android:background="@null"
+                android:layout_gravity="start"
+                android:text="총 000개의 레시피"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_recipe"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="9dp"
-                    android:background="@null"
-                    android:text="총 000개의 레시피"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:visibility="visible" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="394dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/Tuna_Kimchi_Fried_Rice" />
-
-                <LinearLayout
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="참치깍두기 볶음밥" />
-
-                    <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:layout_marginTop="7dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="4인분 30분이내" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="end"
-                    android:src="@drawable/bookmark" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
-
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

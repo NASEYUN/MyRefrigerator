@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ public class RecipeActivity extends AppCompatActivity {
     private RecipeAdapter adapter;
     private BottomNavigationView bot_navi_menu;
     private Intent recipe_intent;
+    private Button pork_button;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class RecipeActivity extends AppCompatActivity {
         recipe_intent = getIntent();
 
         Toolbar tool_bar = findViewById(R.id.recipe_toolbar);
+        pork_button = findViewById(R.id.pork_button);
 
         setSupportActionBar(tool_bar);
         actionBar = getSupportActionBar();
