@@ -22,6 +22,12 @@
         android:icon="@drawable/bookmark"/>
 
     <item
+        android:id="@+id/martFragment"
+        android:title="마트"
+        app:showAsAction="always"
+        android:icon="@drawable/mart"/>
+
+    <item
         android:id="@+id/myPageFragment"
         android:title="마이페이지"
         app:showAsAction="always"
