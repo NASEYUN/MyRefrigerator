@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -15,18 +16,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class SignUpActivity extends AppCompatActivity {
-    // 3시 5분 수정
-    // 3시 10분 수정
+    // 2시 1분 수정
 
     ActionBar actionBar;
+    Button address_search_btn;
     Button signup_btn;
+    EditText addressText_first, addressText_second, addressText_third;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        address_search_btn = findViewById(R.id.address_search_Button);
         signup_btn = findViewById(R.id.registerButton);
+        addressText_first = findViewById(R.id.addressText_first);
+        addressText_second = findViewById(R.id.addressText_second);
+        addressText_third = findViewById(R.id.addressText_third);
+
+        //주소 3개의 edittext 터치 못하도록 막음
+        addressText_first.setFocusable(false);
+        addressText_second.setFocusable(false);
+        addressText_third.setFocusable(false);
+
+        address_search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent address_intent = new Intent(getApplicationContext(), AddressActivity.class);
+                startActivity(address_intent);
+            }
+        });
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
