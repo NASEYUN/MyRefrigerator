@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/basket_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6DA2CA"
+        android:gravity="center_horizontal"
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="나의 냉장고"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout_basket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@id/basket_toolbar"
+        android:textAllCaps="false"
+        app:tabTextColor="#D8D8D8"
+        app:tabSelectedTextColor="#000000"
+        app:tabTextAppearance="@style/tabTextSizeBold"
+        app:tabIndicatorColor="#000000"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorGravity="bottom"
+        app:tabRippleColor="#000000">
+        <!-- app:tabIndicatorFullWidth="false" -->
+
+        <!--        <com.google.android.material.tabs.TabItem-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="신선재료" />-->
+
+        <!--        <com.google.android.material.tabs.TabItem-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="유통기한 만료" />-->
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Viewpager2 위치에 Fragment 노출 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_basket"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tablayout_basket"
+        android:layout_below="@id/tablayout_basket"
+        android:layout_above="@id/basket_bottom_navi_menu"/>
+
+    <TextView
+        android:id="@+id/basket_underline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="#D8D8D8"
+        android:layout_below="@id/tablayout_basket"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_radius_whole"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:text="추천레시피 보러가기"
+        android:visibility="gone"
+        android:layout_above="@id/basket_bottom_navi_menu"/>
+
+    <!-- 하단 네비게이션 바 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/basket_bottom_navi_menu"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="#6E6E6E"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="#FFFFFF"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navi_menu" />
+
+</RelativeLayout>

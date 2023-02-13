@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_array">
+<!--        <item>김치</item>-->
+        <item>해산물</item>
+        <item>고기</item>
+        <item>난류(알류)</item>
+        <item>가공식품</item>
+<!--        <item>어패류</item>-->
+        <item>야채</item>
+        <item>뿌리채소</item>
+        <item>유제품</item>
+        <item>버섯</item>
+<!--        <item>면류</item>-->
+<!--        <item>과일</item>-->
+<!--        <item>기타</item>-->
+    </string-array>
+</resources>

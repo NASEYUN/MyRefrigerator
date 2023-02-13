@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rotationX="0"
+    tools:context=".CameraActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profile_toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6DA2CA"
+        android:gravity="center_horizontal"
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="재료 선택"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="360dp"
+        android:layout_height="417dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="false"
+        android:background="@drawable/button_radius_edge_image"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/pic_btn"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/imageView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_radius_edge_image"
+        android:text="다시찍기"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/imageView"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_radius_edge_image"
+        android:text="다음으로 이동"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+</RelativeLayout>
