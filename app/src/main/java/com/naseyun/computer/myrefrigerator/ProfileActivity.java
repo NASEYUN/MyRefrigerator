@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         address1 = findViewById(R.id.address1_textview);
         address2 = findViewById(R.id.address2_textview);
         address3 = findViewById(R.id.address3_textview);
-        edit_profile = findViewById(R.id.edit_profile);
+        //edit_profile = findViewById(R.id.edit_profile);
 
         username.setEnabled(false);
         id.setEnabled(false);
@@ -77,33 +77,33 @@ public class ProfileActivity extends AppCompatActivity {
 //        pw.setText("1234");
 //        pw.setPaintFlags(pw.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        edit_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //edittext 활성화
-                username.setEnabled(true);
-                id.setEnabled(true);
-                pw.setEnabled(true);
-                pw_check.setEnabled(true);
-                gender.setEnabled(true);
-                address1.setEnabled(true);
-                address2.setEnabled(true);
-                address3.setEnabled(true);
-
-                edit_profile.setText("수정 완료");
-
-                //수정한 데이터로 변경되도록
-                edit_username = username.getText().toString();
-                edit_id = id.getText().toString();
-                edit_pw = pw.getText().toString();
-//                edit_gender = gender.getText().toString();
-
-                username.setText(edit_username);
-                id.setText(edit_id);
-                pw.setText(edit_pw);
-//                gender.setText(edit_gender);
-            }
-        });
+//        edit_profile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //edittext 활성화
+//                username.setEnabled(true);
+//                id.setEnabled(true);
+//                pw.setEnabled(true);
+//                pw_check.setEnabled(true);
+//                gender.setEnabled(true);
+//                address1.setEnabled(true);
+//                address2.setEnabled(true);
+//                address3.setEnabled(true);
+//
+//                edit_profile.setText("수정 완료");
+//
+//                //수정한 데이터로 변경되도록
+//                edit_username = username.getText().toString();
+//                edit_id = id.getText().toString();
+//                edit_pw = pw.getText().toString();
+////                edit_gender = gender.getText().toString();
+//
+//                username.setText(edit_username);
+//                id.setText(edit_id);
+//                pw.setText(edit_pw);
+////                gender.setText(edit_gender);
+//            }
+//        });
 
         //하단 네비게이션 바
         bot_navi_menu = findViewById(R.id.profile_bottom_navi_menu);
@@ -142,23 +142,19 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
+        menuInflater.inflate(R.menu.edit_item, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id)
-        {
+        switch (id) {
             case android.R.id.home: {
                 //현재 화면에서 뒤로가기
                 onBackPressed();
                 return true;
             }
-
-            // 여기가 내가 잘 이해를 못한거 같아서 좀 변경이 되긴했는데 문제는 없으니까
-            // 내가 월요일에 다시 물어볼게!!
             case R.id.menu_edit: {
                 Intent intent = new Intent(getApplicationContext(), Edit_Profile_Activity.class);
                 intent.putExtra("message", "편집 액티비티로 이동!");
