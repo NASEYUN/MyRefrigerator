@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btn_Signup = (Button)findViewById(R.id.btn_signup);
+        btn_Signup.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         btn_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
