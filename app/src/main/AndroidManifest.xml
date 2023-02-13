@@ -30,8 +30,8 @@
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:name="com.google.android.geo.API Key"
+            android:value="AIzaSyAuDsy4VBw2wV2waycQ0Ek-GTeOoJg2wSQ" />
 
         <activity
             android:name=".MapsActivity"
@@ -54,10 +54,8 @@
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".RecipeActivity"></activity>
         <activity android:name=".BookmarkActivity"></activity>
-        <meta-data
-            android:name="com.google.android.geo.API Key"
-            android:value="AIzaSyAuDsy4VBw2wV2waycQ0Ek-GTeOoJg2wSQ"
-            />
+        <activity android:name=".Edit_Profile_Activity"></activity>
+
     </application>
 
 </manifest>
