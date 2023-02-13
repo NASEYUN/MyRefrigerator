@@ -35,7 +35,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
         Recipe item = recipe_arrayList.get(position);
         Uri imageUri = item.getFood_image();
-        holder.recipe_image.setImageURI(item.getFood_image());
+        holder.recipe_image.setImageResource(R.drawable.kimchi);
         holder.recipe_title.setText(item.getFood_title());
         holder.recipe_serving.setText(item.getFood_serving());
         holder.recipe_time.setText(item.getFood_time());

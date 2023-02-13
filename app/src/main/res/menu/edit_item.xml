@@ -7,7 +7,7 @@
     <!--        android:title="menu_back"-->
     <!--        app:showAsAction="always"/>-->
     <item android:id="@+id/menu_edit"
-        android:onClick="수정"
         android:title="수정"
         app:showAsAction="always"/>
+        <!--android:onClick="수정"-->
 </menu>
