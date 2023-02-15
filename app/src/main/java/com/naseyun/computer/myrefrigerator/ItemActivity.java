@@ -52,6 +52,9 @@ public class ItemActivity extends AppCompatActivity {
         itemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(itemAdapter);
 
+        imageView = findViewById(R.id.imageView3);
+        imageView.setImageResource(R.drawable.no_image);
+
         DatePicker datePicker = (DatePicker)findViewById(R.id.itemDate);
         Calendar calendar = new GregorianCalendar();
 
