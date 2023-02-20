@@ -9,6 +9,8 @@ public class Recipe {
     String food_serving;
     String food_time;
 
+    private boolean isSelected;
+
     public Recipe(Uri food_image, String food_title, String food_serving, String food_time) {
         this.food_image = food_image;
         this.food_title = food_title;
@@ -48,3 +50,5 @@ public class Recipe {
 //        this.deadline_date = deadline_date;
 //    }
 }
+
+

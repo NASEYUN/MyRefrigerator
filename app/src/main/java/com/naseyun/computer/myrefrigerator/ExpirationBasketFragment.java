@@ -67,4 +67,15 @@ public class ExpirationBasketFragment extends Fragment implements ItemTouchHelpe
         expiration_baskets.remove(position);
         expiration_ingredient_adapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onLeftClick(int position, RecyclerView.ViewHolder viewHolder) {
+
+    }
+
+    @Override
+    public void onRightClick(int position, RecyclerView.ViewHolder viewHolder) {
+        expiration_baskets.remove(position);
+        expiration_ingredient_adapter.notifyItemRemoved(position);
+    }
 }

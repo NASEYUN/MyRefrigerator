@@ -45,10 +45,15 @@ public class BookmarkActivity extends AppCompatActivity {
 
         adapter = new BookmarkAdapter();
 
-        for(int i=0; i<100; i++) {
+        if (adapter.getItemCount() == 0){
+//                bookmark_recyclerview.setText("등록된 북마크가 없습니다.");
+            }
+
+        for (int i = 0; i < 5; i++) {
             adapter.addItem(new Recipe(Uri.parse("https://recipe1.ezmember.co.kr/cache/recipe/2020/12/16/daa0fb86c5d51f076564c65efa7e01d11.jpg"), "참치깍두기 볶음밥",
                     "4인분", "60분이내"));
         }
+
 
         bookmark_recyclerview.setAdapter(adapter);
 

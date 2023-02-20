@@ -1,7 +1,9 @@
 package com.naseyun.computer.myrefrigerator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -22,11 +24,21 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     @NonNull
     @Override
-    public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+    public RecipeViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
+        final Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.recipe_item_list, parent, false);
         RecipeViewHolder viewholder = new RecipeViewHolder(context, view);
+
+        // 페이지 전환 코드
+        viewholder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, RecipeInfoActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
         return viewholder;
     }
 
@@ -50,4 +62,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     public void addItem(Recipe recipe){
         recipe_arrayList.add(recipe);
     }
+
+
 }

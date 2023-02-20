@@ -31,10 +31,10 @@ public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookmarkViewHolder holder, int position) {
         Recipe item = bookmark_arrayList.get(position);
-        holder.recipe_imageview.setImageURI(item.getFood_image());
-        holder.recipe_title.setText(item.getFood_title());
-        holder.recipe_serving.setText(item.getFood_serving());
-        holder.recipe_time.setText(item.getFood_time());
+        holder.bookmark_imageview.setImageResource(R.drawable.kimchi);
+        holder.bookmark_title.setText(item.getFood_title());
+        holder.bookmark_serving.setText(item.getFood_serving());
+        holder.bookmark_time.setText(item.getFood_time());
     }
 
     @Override
