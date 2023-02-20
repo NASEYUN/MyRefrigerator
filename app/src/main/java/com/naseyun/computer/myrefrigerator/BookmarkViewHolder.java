@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BookmarkViewHolder extends RecyclerView.ViewHolder {
-    public ImageView recipe_imageview;
-    public TextView recipe_title;
-    public ImageButton recipe_bookmark;
-    public TextView recipe_serving;
-    public TextView recipe_time;
+    public ImageView bookmark_recipe_imageview;
+    public TextView bookmark_recipe_title;
+    public ImageButton bookmark_recipe_button;
+    public TextView bookmark_recipe_serving;
+    public TextView bookmark_recipe_time;
 
     public BookmarkViewHolder(Context context, @NonNull View itemView) {
         super(itemView);
-        recipe_imageview = itemView.findViewById(R.id.bookmark_recipe_imageview);
-        recipe_title = itemView.findViewById(R.id.bookmark_recipe_title);
-        recipe_bookmark = itemView.findViewById(R.id.bookmark_recipe_button);
-        recipe_serving = itemView.findViewById(R.id.bookmark_recipe_serving);
-        recipe_time = itemView.findViewById(R.id.bookmark_recipe_time);
+        bookmark_recipe_imageview = itemView.findViewById(R.id.bookmark_recipe_imageview);
+        bookmark_recipe_title = itemView.findViewById(R.id.bookmark_recipe_title);
+        bookmark_recipe_button = itemView.findViewById(R.id.bookmark_recipe_button);
+        bookmark_recipe_serving = itemView.findViewById(R.id.bookmark_recipe_serving);
+        bookmark_recipe_time = itemView.findViewById(R.id.bookmark_recipe_time);
     }
 }

@@ -105,6 +105,7 @@ public class MybasketActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item_add, menu);
         return true;
     }
 
@@ -118,6 +119,10 @@ public class MybasketActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
             }
+            case R.id.menu_plus:
+                Intent intent = new Intent(getApplicationContext(), ItemActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

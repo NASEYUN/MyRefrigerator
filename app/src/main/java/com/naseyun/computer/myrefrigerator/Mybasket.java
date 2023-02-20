@@ -20,7 +20,7 @@ public class Mybasket {
         this.deadline_date = deadline_date;
     }
 
-    public int getIngredient_image(int ingredient_image) {
+    public int getIngredient_image() {
         return ingredient_image;
     }
     public void setIngredient_image(int ingredient_image) {
