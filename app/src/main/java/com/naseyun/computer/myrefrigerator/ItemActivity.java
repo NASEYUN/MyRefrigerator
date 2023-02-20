@@ -84,15 +84,6 @@ public class ItemActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        galBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_PICK);
-//                intent.setType("image/*");
-//                startActivityResult.launch(intent);
-//            }
-//        });
     }
 
     @Override
@@ -118,32 +109,10 @@ public class ItemActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
                         intent.putExtra("image", bitmap);
                         startActivity(intent);
+                        imageView = (ImageView) findViewById(R.id.imageView3);
+                        imageView.setImageBitmap(bitmap);
                         //CameraActivity.ImageView.setImageBitmap(bitmap);
                     }
                 }
             });
-
-//    ActivityResultLauncher<Intent> startActivityResult = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if( result.getResultCode() == RESULT_OK && result.getData() != null){
-//                        uri = result.getData().getData();
-//                        try {
-//                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//
-//                            Intent intent = new Intent(getApplicationContext(), CameraActivity.class);
-//                            intent.putExtra("gal-image", bitmap);
-//                            startActivity(intent);
-////                            imageView.setImageBitmap(bitmap);
-//                        }catch (FileNotFoundException e){
-//                            e.printStackTrace();
-//                        }catch (IOException e){
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }
-//            });
-
 }

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class SignUpActivity extends AppCompatActivity {
-    // 2시 1분 수정
+    // 2시 2분 수정
 
     ActionBar actionBar;
     Button address_search_btn;
@@ -104,4 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
