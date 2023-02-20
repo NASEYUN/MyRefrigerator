@@ -1,5 +1,6 @@
 package com.naseyun.computer.myrefrigerator;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,19 +20,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BookmarkActivity extends AppCompatActivity {
+public class RecipeInfoActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private Toolbar toolbar;
     private BottomNavigationView bot_navi_menu;
-    private RecyclerView bookmark_recyclerview;
-    private BookmarkAdapter adapter;
+    private RecyclerView recipe_info_recyclerview;
+    private RecipeInfoAdapter adapter;
 
+    @SuppressLint("MissingInflatedId")
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bookmark);
+        setContentView(R.layout.activity_recipe_info);
 
-        toolbar = findViewById(R.id.bookmark_toolbar);
+        toolbar = findViewById(R.id.recipe_toolbar);
 
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
@@ -40,25 +42,19 @@ public class BookmarkActivity extends AppCompatActivity {
         // ↓툴바에 홈버튼을 활성화
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        bookmark_recyclerview = findViewById(R.id.recyclerview_bookmark);
-        bookmark_recyclerview.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        recipe_info_recyclerview = findViewById(R.id.recyclerview_recipeinfo);
+        recipe_info_recyclerview.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
-        adapter = new BookmarkAdapter();
-
-        if (adapter.getItemCount() == 0){
-//                bookmark_recyclerview.setText("등록된 북마크가 없습니다.");
-            }
-
-        for (int i = 0; i < 5; i++) {
+        adapter = new RecipeInfoAdapter();
+        for(int i=0; i<1; i++) {
             adapter.addItem(new Recipe(Uri.parse("https://recipe1.ezmember.co.kr/cache/recipe/2020/12/16/daa0fb86c5d51f076564c65efa7e01d11.jpg"), "참치깍두기 볶음밥",
-                    "4인분", "60분이내"));
+                    "20인분", "120분이내"));
         }
 
-
-        bookmark_recyclerview.setAdapter(adapter);
+        recipe_info_recyclerview.setAdapter(adapter);
 
         //하단 네비게이션 바
-        bot_navi_menu = findViewById(R.id.bookmark_bottom_navi_menu);
+        bot_navi_menu = findViewById(R.id.recipe_info_bottom_navi_menu);
         bot_navi_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

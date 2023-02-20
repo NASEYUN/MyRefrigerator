@@ -58,6 +58,8 @@ public class RecipeActivity extends AppCompatActivity {
         //recyclerview에 어댑터 연결
         recipe_recyclerView.setAdapter(adapter);
 
+
+
         //하단 네비게이션 바
         bot_navi_menu = findViewById(R.id.recipe_bottom_navi_menu);
         bot_navi_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -91,6 +93,7 @@ public class RecipeActivity extends AppCompatActivity {
                 return false;
             }
         });
+        
     }
 
     @Override
@@ -120,4 +123,5 @@ public class RecipeActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
