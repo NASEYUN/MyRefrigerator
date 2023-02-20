@@ -104,4 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

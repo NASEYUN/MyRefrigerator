@@ -75,6 +75,12 @@ public class BookmarkActivity extends AppCompatActivity {
                     bookmark_intent.putExtra("message", "북마크 액티비티로 이동!");
                     startActivity(bookmark_intent);
                     Toast.makeText(getApplicationContext(), bookmark_intent.toString(), Toast.LENGTH_SHORT).show();
+                } else if (menuItem.getItemId() == R.id.martFragment) {
+                    menuItem.setChecked(true);
+                    Intent bookmark_intent = new Intent(getApplicationContext(), MapsActivity.class);
+                    bookmark_intent.putExtra("message", "구글맵 액티비티로 이동!");
+                    startActivity(bookmark_intent);
+                    Toast.makeText(getApplicationContext(), bookmark_intent.toString(), Toast.LENGTH_SHORT).show();
                 } else if (menuItem.getItemId() == R.id.myPageFragment) {
                     menuItem.setChecked(true);
                     Intent mypage_intent = new Intent(getApplicationContext(), ProfileActivity.class);
