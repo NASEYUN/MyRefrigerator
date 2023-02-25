@@ -6,10 +6,10 @@ header("Content-Type: text/html; charset=UTF-8");
     new daum.Postcode({
         oncomplete: function(data) {
             if(data.userSelectedType=="R"){ //R인경우 도로명 주소
-                window.TestApp.setAddress(data.zonecode, data.roadAddress, data.buildingName);
+                window.MyRefrigeratorApp.setAddress(data.zonecode, data.roadAddress, data.buildingName);
             }
             else { //J인 경우, 지번 주소
-                window.TestApp.setAddress(data.zonecode, data.jibunAddress, data.buildingName);
+                window.MyRefrigeratorApp.setAddress(data.zonecode, data.jibunAddress, data.buildingName);
             }
         }
     }).open();
