@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class BookmarkAdapter extends RecyclerView.Adapter<BookmarkViewHolder> {
     private ArrayList<Recipe> bookmark_arrayList;
 
+
     public BookmarkAdapter() {
         bookmark_arrayList = new ArrayList<>();
     }
