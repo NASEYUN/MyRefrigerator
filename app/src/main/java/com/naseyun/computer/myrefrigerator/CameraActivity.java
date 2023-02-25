@@ -32,22 +32,7 @@ public class CameraActivity extends AppCompatActivity {
         Bitmap imagebit = (Bitmap)intent.getParcelableExtra("image");
         imageView.setImageBitmap(imagebit);
 
-//        Bitmap galbit = (Bitmap)intent.getParcelableExtra("gal-image");
-//        imageView.setImageBitmap(galbit);
-
         Button picBtn = findViewById(R.id.pic_btn);
-//        picBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int permissionCheck = ContextCompat.checkSelfPermission(CameraActivity.this, Manifest.permission.CAMERA);
-//                if (permissionCheck == PackageManager.PERMISSION_DENIED) {
-//                    ActivityCompat.requestPermissions(CameraActivity.this, new String[]{Manifest.permission.CAMERA}, 0);
-//                } else {
-//                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                    activityResultPicture.launch(intent);
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -61,18 +46,4 @@ public class CameraActivity extends AppCompatActivity {
             }
         }
     }
-
-//    ActivityResultLauncher<Intent> activityResultPicture = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-//                        Bundle extras = result.getData().getExtras();
-//                        bitmap = (Bitmap) extras.get("data");
-//                        ImageView.setImageBitmap(imagebit);
-//                    }
-//                }
-//            });
-
 }
