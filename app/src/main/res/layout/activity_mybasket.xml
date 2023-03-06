@@ -78,7 +78,7 @@
         android:layout_below="@id/tablayout_basket"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/recomendrecipe_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_radius_whole"
