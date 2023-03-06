@@ -49,7 +49,8 @@ public class ItemActivity extends AppCompatActivity {
     private int month = 0;
     private int day = 0;
 
-    Button button;
+    Button button_camera;
+    Button button_album;
     ImageView imageView;
 
     private File photoFile;
@@ -82,13 +83,21 @@ public class ItemActivity extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.button2);
+        button_camera = findViewById(R.id.button2);
+        button_album = findViewById(R.id.button3);
         imageView = findViewById(R.id.imageView3);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 camera();
+            }
+        });
+
+        button_album.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                album();
             }
         });
 
@@ -134,6 +143,44 @@ public class ItemActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    private void album(){
+        if(checkPermission()){
+            displayFileChoose();
+        }else{
+            requestPermission();
+        }
+    }
+
+    private void requestPermission() {
+        if(ActivityCompat.shouldShowRequestPermissionRationale(ItemActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            Toast.makeText(ItemActivity.this, "권한 수락이 필요합니다.",
+                    Toast.LENGTH_SHORT).show();
+        }else{
+            ActivityCompat.requestPermissions(ItemActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 500);
+        }
+    }
+
+    private boolean checkPermission(){
+        int result = ContextCompat.checkSelfPermission(ItemActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if(result == PackageManager.PERMISSION_DENIED){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    private void displayFileChoose() {
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(i, "SELECT IMAGE"), 300);
+    }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -233,7 +280,7 @@ public class ItemActivity extends AppCompatActivity {
                 imageView.setImageBitmap(photo);
                 imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-//                imageView.setImageBitmap( getBitmapAlbum( imageView, albumUri ) );
+                imageView.setImageBitmap( getBitmapAlbum( imageView, albumUri ) );
 
             } catch ( Exception e ) {
                 e.printStackTrace( );
