@@ -1,13 +1,11 @@
 package com.naseyun.computer.myrefrigerator;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,23 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.ArrayList;
 
 public class MybasketActivity extends AppCompatActivity {
     private ActionBar actionBar;
-    private MybasketAdapter  expiration_adapter;
     private BottomNavigationView bot_navi_menu;
     private Intent mybasket_intent;
     private TabLayout tablayout_basket;
@@ -48,6 +36,7 @@ public class MybasketActivity extends AppCompatActivity {
         mybasket_intent = getIntent(); // 인텐트 받기
 
         Toolbar tool_bar = findViewById(R.id.basket_toolbar);
+
 
         setSupportActionBar(tool_bar);
         actionBar = getSupportActionBar();
@@ -85,7 +74,7 @@ public class MybasketActivity extends AppCompatActivity {
                 }
                 else if (menuItem.getItemId() == R.id.martFragment) {
                     menuItem.setChecked(true);
-                    Intent bookmark_intent = new Intent(getApplicationContext(), MainActivity.class);  //마트화면이 없어 임시로 메인으로 이동되도록 해놓음!
+                    Intent bookmark_intent = new Intent(getApplicationContext(), MapsActivity.class);
                     bookmark_intent.putExtra("message", "마트 액티비티로 이동!");
                     startActivity(bookmark_intent);
                     Toast.makeText(getApplicationContext(), bookmark_intent.toString(), Toast.LENGTH_SHORT).show();

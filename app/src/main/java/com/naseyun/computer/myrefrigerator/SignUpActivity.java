@@ -1,6 +1,8 @@
 package com.naseyun.computer.myrefrigerator;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +28,8 @@ public class SignUpActivity extends AppCompatActivity {
     Button address_search_btn;
     Button signup_btn;
     EditText addressText_first, addressText_second, addressText_third;
+    private static final int SEARCH_ADDRESS_ACTIVITY = 10000;
+    String[] address_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,12 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent address_intent = new Intent(getApplicationContext(), AddressActivity.class);
-                startActivity(address_intent);
+                // 화면전환 애니메이션 없애기
+                overridePendingTransition(0, 0);
+                //startActivityForResult(address_intent, SEARCH_ADDRESS_ACTIVITY);
+                setResult(SEARCH_ADDRESS_ACTIVITY, address_intent);
+                //startActivity(address_intent);
+                startActivityResult.launch(address_intent);
             }
         });
 
@@ -69,8 +82,6 @@ public class SignUpActivity extends AppCompatActivity {
         // ↓툴바에 홈버튼을 활성화
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = getIntent();
-        Log.d("tag", intent.getStringExtra("message"));
 
     }
 
@@ -105,5 +116,26 @@ public class SignUpActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    //AddressActivity에서 성공적으로 돌아올 경우
+    ActivityResultLauncher<Intent> startActivityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = result.getData();
+                        String data = intent.getExtras().getString("data");
+                        if (data != null) {
+                            Log.v("checkk", data);
+                            address_data = data.split(", ");
+                            //주소 3개의 edittext 터치 할 수 있도록 허용
+                            addressText_first.setBackgroundColor(Color.WHITE);
+                            addressText_second.setBackgroundColor(Color.WHITE);
+                            addressText_first.setText(address_data[0]);
+                            addressText_second.setText(address_data[1]);
+                        }
+                    }
+                }
+            }
+    );
 }

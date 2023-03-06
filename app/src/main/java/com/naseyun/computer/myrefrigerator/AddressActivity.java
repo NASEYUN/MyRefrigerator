@@ -43,7 +43,6 @@ public class AddressActivity extends AppCompatActivity {
             intent.putExtras(extra);
             setResult(RESULT_OK, intent);
             finish();
-
         }
     }
 
@@ -127,7 +126,7 @@ public class AddressActivity extends AppCompatActivity {
             }
         });
         //webview url load. html 파일 주소
-        webView.loadUrl("http://ec2-3-39-212-222.ap-northeast-2.compute.amazonaws.com/address_search.html");
+        webView.loadUrl("http://ec2-3-39-212-222.ap-northeast-2.compute.amazonaws.com/address_search_new.html");
     }
 
     @Override
@@ -141,7 +140,6 @@ public class AddressActivity extends AppCompatActivity {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    txt_address.setText(String.format("(%s) %s %s", arg1, arg2, arg3));
                     init_webView(); //webview를 초기화하지 않으면 재사용할 수 없음
                 }
             });

@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.ArrayList;
+import android.widget.Toast;
 
-public class ExpirationBasketFragment extends Fragment implements ItemTouchHelperListener{
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class ExpirationBasketFragment extends Fragment implements ItemTouchHelperListener, onListItemSelectedInterface{
     private RecyclerView recyclerView_expiration_basket;
     private RecyclerView.LayoutManager recyclerview_manager;
     private MybasketAdapter expiration_ingredient_adapter;
@@ -44,7 +49,7 @@ public class ExpirationBasketFragment extends Fragment implements ItemTouchHelpe
         for (int i = 0; i < 100; i++) {
             expiration_baskets.add(new Mybasket(2, String.valueOf(i)+"고등어", i, "마리","해산물","2023-02-10", "D+" + String.valueOf(i)));
         }
-        expiration_ingredient_adapter = new MybasketAdapter(expiration_baskets);
+        expiration_ingredient_adapter = new MybasketAdapter(expiration_baskets, this);
         //recyclerview에 어댑터 연결
         recyclerView_expiration_basket.setAdapter(expiration_ingredient_adapter);
         helper = new ItemTouchHelper(new ItemTouchHelperCallback(this));
@@ -77,5 +82,15 @@ public class ExpirationBasketFragment extends Fragment implements ItemTouchHelpe
     public void onRightClick(int position, RecyclerView.ViewHolder viewHolder) {
         expiration_baskets.remove(position);
         expiration_ingredient_adapter.notifyItemRemoved(position);
+    }
+
+    @Override
+    public void addItemSelected(View v, int position) {
+
+    }
+
+    @Override
+    public void removeItemSelected(View v, int position) {
+
     }
 }
