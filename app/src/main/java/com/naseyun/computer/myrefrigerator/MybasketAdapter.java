@@ -6,19 +6,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MybasketAdapter extends RecyclerView.Adapter<BasketViewHolder> {
     private ArrayList<Mybasket> mybasket_data = new ArrayList<>();
-    private int selectedposition = -1;
-    private int oldposition = -1;
+    private HashSet<Integer> position_set = new HashSet<Integer>();
+    private onListItemSelectedInterface mListener;
 
-    public MybasketAdapter(ArrayList<Mybasket> mybasket_data) {
+    public MybasketAdapter(ArrayList<Mybasket> mybasket_data, onListItemSelectedInterface listener) {
         this.mybasket_data = mybasket_data;
+        this.mListener = listener;
     }
 
     //뷰홀더를 생성(레이아웃 생성)
@@ -29,7 +33,6 @@ public class MybasketAdapter extends RecyclerView.Adapter<BasketViewHolder> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.basket_item_list, parent, false);
         final BasketViewHolder viewholder = new BasketViewHolder(context, view);
-
         return viewholder;
     }
 
@@ -44,31 +47,28 @@ public class MybasketAdapter extends RecyclerView.Adapter<BasketViewHolder> {
         holder.ingredient_category.setText(item.getIngredient_category());
         holder.expiration.setText(item.getExpiration_date());
         holder.deadline.setText(String.valueOf(item.getDeadline_date()));
-        holder.itemView.setSelected(true);
 
         if (item.isSelected()) {
             holder.itemView.setBackgroundColor(Color.parseColor("#F7F8E0"));
-        }
-        else {
+        } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("checkk", String.valueOf(position));
-                setMultipleSelection(position);
+                if (mybasket_data.get(position).isSelected()) { //아이템뷰가 선택되어있는 경우, 선택 해제되도록
+                    holder.itemView.setSelected(false);
+                    mybasket_data.get(position).setSelected(false);
+                    mListener.removeItemSelected(holder.itemView, position);
+                } else { //선택되어있지 않은 경우, 선택되도록
+                    holder.itemView.setSelected(true);
+                    mybasket_data.get(position).setSelected(true);
+                    mListener.addItemSelected(holder.itemView, position);
+                }
+                notifyDataSetChanged();
             }
         });
-    }
-
-    private void setMultipleSelection(int adapterPosition) {
-        if (mybasket_data.get(adapterPosition).isSelected()) {
-            mybasket_data.get(adapterPosition).setSelected(false);
-        } else {
-            mybasket_data.get(adapterPosition).setSelected(true);
-        }
-        notifyDataSetChanged();
     }
 
     @Override
@@ -85,5 +85,4 @@ public class MybasketAdapter extends RecyclerView.Adapter<BasketViewHolder> {
     public void removeItem(int position) {
         mybasket_data.remove(position);
     }
-
 }

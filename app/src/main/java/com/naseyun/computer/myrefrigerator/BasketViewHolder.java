@@ -1,7 +1,6 @@
 package com.naseyun.computer.myrefrigerator;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +17,7 @@ public class BasketViewHolder extends RecyclerView.ViewHolder {
     public TextView ingredient_category;
     public TextView expiration;
     public TextView deadline;
-    public MybasketAdapter mybasketAdapter;
+    private onListItemSelectedInterface itemListener = null;
 
     public BasketViewHolder(Context context, @NonNull final View itemView) {
         super(itemView);

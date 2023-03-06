@@ -16,16 +16,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import java.util.ArrayList;
+import java.util.HashSet;
 
-public class FreshBasketFragment extends Fragment implements ItemTouchHelperListener, OnDialogListener{
+public class FreshBasketFragment extends Fragment implements ItemTouchHelperListener, OnDialogListener, onListItemSelectedInterface{
     // TODO: Rename parameter arguments, choose names that match
     private RecyclerView recyclerView_fresh_basket;
     private RecyclerView.LayoutManager recyclerview_manager;
     private MybasketAdapter fresh_ingredient_adapter;
     private ArrayList<Mybasket> fresh_baskets;
     private ItemTouchHelper helper;
+    private ExtendedFloatingActionButton recommendrecipe_floatingbutton;
+    private HashSet<Integer> position_set = new HashSet<Integer>();
 
     public FreshBasketFragment() {
         // Required empty public constructor
@@ -49,12 +52,11 @@ public class FreshBasketFragment extends Fragment implements ItemTouchHelperList
         recyclerView_fresh_basket.setHasFixedSize(true);
         recyclerview_manager = new LinearLayoutManager(view.getContext());
         recyclerView_fresh_basket.setLayoutManager(recyclerview_manager);
-        //recyclerView_fresh_basket.scrollToPosition(0);
         fresh_baskets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             fresh_baskets.add(new Mybasket(1, String.valueOf(i) + "당근", i, "개", "뿌리채소", "2022-12-23", "D-" + String.valueOf(i)));
         }
-        fresh_ingredient_adapter = new MybasketAdapter(fresh_baskets);
+        fresh_ingredient_adapter = new MybasketAdapter(fresh_baskets, this);
         //recyclerview에 어댑터 연결
         recyclerView_fresh_basket.setAdapter(fresh_ingredient_adapter);
         helper = new ItemTouchHelper(new ItemTouchHelperCallback(this));
@@ -65,6 +67,13 @@ public class FreshBasketFragment extends Fragment implements ItemTouchHelperList
                 helper.onDraw(c, parent, state);
             }
         });
+        recommendrecipe_floatingbutton = view.findViewById(R.id.recipe_floatingbtn);
+        //basket 데이터가 없을 경우, '식재료가 없습니다.' 텍스트 출력되도록
+        if (fresh_ingredient_adapter.getItemCount() == 0) {
+            recyclerView_fresh_basket.setVisibility(View.INVISIBLE);
+        }
+        //showRecommendRecipe();
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -126,5 +135,28 @@ public class FreshBasketFragment extends Fragment implements ItemTouchHelperList
     public void onFinish(int position, Mybasket mybasket) {
         fresh_baskets.set(position, mybasket);
         fresh_ingredient_adapter.notifyItemChanged(position);
+    }
+
+    public void showRecommendRecipe() {
+        if (position_set.size() != 0) {
+            Log.v("checkk", "position_set개수 확인 : " +position_set.size());
+            recommendrecipe_floatingbutton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void addItemSelected(View v, int position) {
+        position_set.add(position);
+        if (position_set.size() > 0) {
+            recommendrecipe_floatingbutton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void removeItemSelected(View v, int position) {
+        position_set.remove(position);
+        if (position_set.size() <= 0) {
+            recommendrecipe_floatingbutton.setVisibility(View.INVISIBLE);
+        }
     }
 }
